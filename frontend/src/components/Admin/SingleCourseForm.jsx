@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SingleCourseForm = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ const SingleCourseForm = () => {
 
   const [errors, setErrors] = useState({});
   const [apiResponse, setApiResponse] = useState(null);
-
+  const navigate=useNavigate()
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -59,13 +59,14 @@ const SingleCourseForm = () => {
     console.log('Form Data:', formData);
 
     try {
-      const response = await axios.post('https://api.example.com/courses', formDataToSubmit, {
+      const response = await axios.post('http://localhost:8500/api/saveData', formDataToSubmit, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
       setApiResponse(response.data);
       alert('Course submitted successfully!');
+      navigate('/admin/singlecourse')
     } catch (error) {
       alert('Error submitting course.');
       console.error('API Error:', error);

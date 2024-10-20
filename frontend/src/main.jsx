@@ -9,6 +9,8 @@ import SingleCourse from './components/Admin/SingleCOurse.jsx'
 import ComboCourse from './components/Admin/ComboCourse.jsx'
 import DataAnalytics from './components/Admin/DataAnalytics.jsx'
 import SingleCourseForm from './components/Admin/SingleCourseForm.jsx'
+import SingleCourseView from './components/Admin/SingleCourseView.jsx'
+import SingleCourseEdit from './components/Admin/SingleCourseEdit.jsx'
 
 
 let router=createBrowserRouter(
@@ -19,6 +21,8 @@ let router=createBrowserRouter(
       <Route path='/admin/combocourse' element={<ComboCourse/>}/>
       <Route path='/admin/dataanalytics' element={<DataAnalytics/>}/>
       <Route path='/admin/singlecourseform' element={<SingleCourseForm/>}/>
+      <Route path='/admin/singlecourseview/:id' element={<SingleCourseView/>}/>
+      <Route path='/admin/singlecourseedit/:id' element={<SingleCourseEdit/>}/>
 
 
     </Route>
